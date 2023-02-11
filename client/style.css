@@ -276,3 +276,13 @@ a:active {
   font-size: 1rem;
   cursor: pointer;
 }
+
+#reclist {
+  width: 80%;
+  margin:0px auto;
+  text-align:justify;
+  padding-top: 20px;
+  line-height: 1.75rem;
+  padding-left: 70px;
+  
+}
