@@ -25,8 +25,13 @@
 			<input type="number" id="k" placeholder="K - Ratio of Potassium Content in Soil" />
 			<input type="number" id="temp" placeholder="Temperature (in Celsius)" />
 			<input type="number" id="humidity" placeholder="Humidity%" />
-			<input type="number" id="ph" placeholder="pH value of Soil" />
-            <input type="number" id="rain" placeholder="Rainfall in mm" />
+			<input type="number" id="rain" placeholder="Rainfall in mm" />
+			<input list="browsers" id="ph" placeholder="pH level" /></label>
+				<datalist id="browsers">
+                <option value="Normal">
+                <option value="Acidic">
+                <option value="Basic">
+            
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -39,6 +44,7 @@
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Crop Recommendation</h1>
+				<img src="cropwomen.jpg" class ="women" alt="farmer-img" width="120px" height="150px">
 				<p>The crop which can be grown on the field as per your details is:</p>
 				<button class="ghost" id="submit" onclick="submitData()">Submit</button>
 			</div>
