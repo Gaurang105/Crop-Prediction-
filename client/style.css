@@ -266,5 +266,13 @@ a:active {
 .states {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.25);
 }
-#reclist {
+
+#stateDropDown {
+  width: 17rem;
+  padding: 0.35rem;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ffe05d, #f48b29);
+  display: flex;
+  font-size: 1rem;
+  cursor: pointer;
 }
