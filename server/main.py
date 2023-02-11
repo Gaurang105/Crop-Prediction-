@@ -1,8 +1,9 @@
 import asyncio
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 import model
+import json
 
 
 app = FastAPI()
@@ -70,3 +71,25 @@ async def crop_recommendation(request: Request):
 
     print(await request.body())
     return {'prediction': str(result)}
+
+@app.get('/api/advtop5')
+async def advanced_top_5(N: float, P: float, K: float, temp: float, humidity: float, rainfall: float, nature: str):
+    if nature not in ['acidic', 'neutral', 'alkaline']:
+        return JSONResponse({
+            'm': 'Invalid nature provided, valid values are [acidic, neutral, alkaline]'
+        },
+            status_code=400,
+            headers=headers
+        )
+    res = model.top_5(N, P, K, temp, humidity, rainfall, nature)
+    return {'predictions': res}
+
+@app.get('/api/basictop5')
+async def basic_top_5(state: str):
+    N, P, K, temp, humidity, rainfall, nature = model.get_state_data(state)
+    return await advanced_top_5(N, P, K, temp, humidity, rainfall, nature)
+
+@app.get('/api/statewise')
+async def statewise_crop_recommendation(state: str):
+    N, P, K, temp, humidity, rainfall, nature = model.get_state_data(state)
+    return await crop_r(N, P, K, temp, humidity, rainfall, nature)
