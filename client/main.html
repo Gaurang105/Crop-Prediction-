@@ -4,6 +4,7 @@
         <link rel="icon" type="image/x-icon" href="favi.png">
         <link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -19,13 +20,18 @@
 	<div class="form-container back-step-container">
 		<form action="#">
 
-			<input type="number" placeholder="N - Ratio of Nitrogen Content in Soil" />
-			<input type="number" placeholder="P - Ratio of Phosphorous Content in Soil" />
-			<input type="number" placeholder="K - Ratio of Potassium Content in Soil" />
-			<input type="number" placeholder="Temperature (in Celsius)" />
-			<input type="number" placeholder="Humidity%" />
-			<input type="number" placeholder="pH value of Soil" />
-            <input type="number" placeholder="Rainfall in mm" />
+			<input type="number" id="n" placeholder="N - Ratio of Nitrogen Content in Soil" />
+			<input type="number" id="p" placeholder="P - Ratio of Phosphorous Content in Soil" />
+			<input type="number" id="k" placeholder="K - Ratio of Potassium Content in Soil" />
+			<input type="number" id="temp" placeholder="Temperature (in Celsius)" />
+			<input type="number" id="humidity" placeholder="Humidity%" />
+			<input type="number" id="rain" placeholder="Rainfall in mm" />
+			<input list="browsers" id="ph" placeholder="pH level" /></label>
+				<datalist id="browsers">
+                <option value="Normal">
+                <option value="Acidic">
+                <option value="Basic">
+            
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -38,8 +44,9 @@
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Crop Recommendation</h1>
+				<img src="cropwomen.jpg" class ="women" alt="farmer-img" width="120px" height="150px">
 				<p>The crop which can be grown on the field as per your details is:</p>
-				<button class="ghost" id="next-step">Submit</button>
+				<button class="ghost" id="submit" onclick="submitData()">Submit</button>
 			</div>
 		</div>
 	</div>
