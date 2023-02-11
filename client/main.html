@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Crop Prediction</title>
+        <link rel="icon" type="image/x-icon" href="favi.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+    <body>
+        
+        <div class="container" id="container">
+            
+	<div class="form-container next-step-container">
+		<form action="#">
+			<h1>Crop Recommended:</h1>
+            <!--output will come here-->
+		</form>
+	</div>
+	<div class="form-container back-step-container">
+		<form action="#">
+
+			<input type="number" placeholder="N - Ratio of Nitrogen Content in Soil" />
+			<input type="number" placeholder="P - Ratio of Phosphorous Content in Soil" />
+			<input type="number" placeholder="K - Ratio of Potassium Content in Soil" />
+			<input type="number" placeholder="Temperature (in Celsius)" />
+			<input type="number" placeholder="Humidity%" />
+			<input type="number" placeholder="pH value of Soil" />
+            <input type="number" placeholder="Rainfall in mm" />
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+                <img src="fam.png" alt="farmer-img" width="150px" height="270px">
+				<h1>Is something wrong?</h1>
+				<p>No worries! You can change the details.</p>
+				<button class="ghost" id="back-step">Back</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Crop Recommendation</h1>
+				<p>The crop which can be grown on the field as per your details is:</p>
+				<button class="ghost" id="next-step">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="script.js"></script>
+    </body>
+</html>
