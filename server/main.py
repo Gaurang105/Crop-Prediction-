@@ -1,11 +1,18 @@
 import asyncio
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 import model
-import json
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 headers = {
     'Access-Control-Allow-Origin': "*"
@@ -32,7 +39,7 @@ async def crop_r(N: float, P: float, K: float, temp: float, humidity: float, rai
             headers=headers
         )
     prediction = await asyncio.get_running_loop().run_in_executor(None, model.predict, N, P, K, temp, humidity, rainfall, nature)
-    return JSONResponse({'prediction': str(prediction)}, headers=headers)
+    return JSONResponse({'prediction': str(prediction[0])}, headers=headers)
 
 
 # @app.post('/api/cropr')
