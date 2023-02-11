@@ -5,6 +5,8 @@ from starlette.responses import JSONResponse
 import model
 import json
 
+with open('./season.json', 'r') as f:
+    season_info = json.load(f)
 
 app = FastAPI()
 
@@ -82,6 +84,8 @@ async def advanced_top_5(N: float, P: float, K: float, temp: float, humidity: fl
             headers=headers
         )
     res = model.top_5(N, P, K, temp, humidity, rainfall, nature)
+    for i in range(len(res)):
+        res[i] = f'{res[i]} ({season_info.get(res[i])})'
     return {'predictions': res}
 
 @app.get('/api/basictop5')
