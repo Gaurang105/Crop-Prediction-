@@ -7,10 +7,12 @@ nextStepButton.addEventListener('click', () => {
 });
 
 backStepButton.addEventListener('click', () => {
+	let recList = document.getElementById("recList");
+	recList.innerHTML = "";
 	container.classList.remove("right-panel-active");
 });
 
-function submitData(){
+function submitData() {
 	let nin = document.getElementById('n')
 	let poh = document.getElementById('p')
 	let pot = document.getElementById('k')
@@ -21,7 +23,7 @@ function submitData(){
 
 	console.log()
 
-	jsonObject={
+	jsonObject = {
 		"N": nin.value,
 		"P": poh.value,
 		"K": pot.value,
@@ -32,10 +34,17 @@ function submitData(){
 	}
 	let config = {
 		params: jsonObject
-	  }
-	  
-	  axios.get('http://127.0.0.1:8000/api/cropr', config).then(function(response) {
-		  console.log(response);
-	  })
+	}
+
+	axios.get('http://127.0.0.1:8000/api/advtop5', config).then(function (response) {
+		let recList = document.getElementById("recList");
+		let preds = response.data.predictions
+
+		for(let pred of preds) {
+			recList.innerHTML += "<li>" + pred + "</li>";
+		}
+		console.log(response.data.predictions);
+	})
+
 
 }
