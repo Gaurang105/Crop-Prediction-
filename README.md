@@ -1,4 +1,4 @@
 # TRINIT_Griffin_ML
-Team Griffin's submission for the TRINIT hackathon.
+This project was developed as a submission for the TRINIT hackathon by Team Griffin.
 
-Crop Recommendation ML Model with a smooth User Interface
+Crop Recommendation ML Model with a smooth User Interface is a web-based application that recommends crops to farmers based on their soil type and location.
