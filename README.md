@@ -2,7 +2,7 @@
 # Crop Prediction Using ML
 
 This is Crop Recommendation website which runs on a ML model and simple user friendly interface.
-We have used logistic regression for our ML model
+We have used logistic regression for our ML model.
 
 
 ## Screenshots
